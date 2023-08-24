@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f2f3f8"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:id="@+id/main_title_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="20dp"
+        android:text="网课云平台"
+        android:layout_marginLeft="79dp"
+        android:textSize="28sp"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:id="@+id/main_title_right_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
+        android:text="更多"
+        android:textSize="22sp"
+        android:textColor="@drawable/select_default_tv_select"
+        android:padding="5dp"
+        android:layout_marginRight="79dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/main_RecyclerView_class"
+        android:layout_width="match_parent"
+        android:layout_height="363dp"
+        app:layout_constraintTop_toBottomOf="@id/main_title_left"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="79dp"
+        android:layout_marginRight="79dp"
+        android:overScrollMode="never"/>
+
+    <TextView
+        android:id="@+id/main_title_left_app"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/main_RecyclerView_class"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="19dp"
+        android:text="网课应用"
+        android:layout_marginLeft="79dp"
+        android:textSize="28sp"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:id="@+id/main_title_right_more_app"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/main_RecyclerView_class"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="19dp"
+        android:text="更多"
+        android:padding="5dp"
+        android:textSize="22sp"
+        android:textColor="@drawable/select_default_tv_select"
+        android:layout_marginRight="79dp"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/main_RecyclerView_apps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/main_title_left_app"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="22dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:overScrollMode="never"/>
+
+    <TextView
+        android:id="@+id/main_no_content_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_title_left_app"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="100dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:text="网络加载失败"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

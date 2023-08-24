@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.VideoPlayerActivity">
+    <VideoView
+        android:id="@+id/video_player_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/my_video_control"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0000D6EB">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/video_player_view_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#99000000"
+            android:elevation="5dp"
+            android:padding="10dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent">
+            <ImageView
+                android:id="@+id/video_player_return"
+                android:layout_width="45sp"
+                android:layout_height="35sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:background="@mipmap/return2"/>
+            <TextView
+                android:id="@+id/video_player_view_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:text="视频一"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

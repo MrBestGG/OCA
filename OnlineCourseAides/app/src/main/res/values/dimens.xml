@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--dialog-->
+    <dimen name="dialog_select_width">750dp</dimen>
+    <dimen name="dialog_select_height">580dp</dimen>
+    <dimen name="float_win_select_size">22sp</dimen>
+    <dimen name="float_win_select_size_small">20sp</dimen>
+</resources>

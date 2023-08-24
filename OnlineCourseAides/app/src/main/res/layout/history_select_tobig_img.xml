@@ -1,0 +1,43 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <!-- Image Cropper fill the remaining available height -->
+    <com.theartofdev.edmodo.cropper.CropImageView xmlns:custom="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cropImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        custom:layout_constraintLeft_toLeftOf="parent"
+        custom:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/d_big_select"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:text="确认"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@drawable/shap_dialog_to_big_tv_bg"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/d_big_cancel"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@id/d_big_select"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:text="取消"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@drawable/main_select_title"
+        android:textSize="20sp"/>
+</RelativeLayout>

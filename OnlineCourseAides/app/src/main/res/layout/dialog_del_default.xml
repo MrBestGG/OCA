@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="510dp"
+    android:layout_height="240dp"
+    android:background="@drawable/shape_default_dialog_thems">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:textColor="#000"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        tools:text="温馨提示" />
+
+    <TextView
+        android:id="@+id/tv_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tv_title"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:textColor="#000"
+        android:textSize="20sp"
+        tools:text="确认需要删除" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="1px"
+        android:layout_height="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:background="#cccccc" />
+
+    <TextView
+        android:id="@+id/btn_negative"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="24dp"
+        android:layout_toLeftOf="@id/divider"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textColor="#007aff"
+        android:textStyle="bold"
+        tools:text="取消" />
+
+    <TextView
+        android:id="@+id/btn_make_sure"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="24dp"
+        android:layout_toRightOf="@id/divider"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textColor="#007aff"
+        android:textStyle="bold"
+        tools:text="确认" />
+</RelativeLayout>

@@ -1,0 +1,168 @@
+plugins {
+    id 'com.android.application'
+    id 'org.greenrobot.greendao'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+def versions = rootProject.ext.android
+
+android {
+
+    buildToolsVersion versions.buildToolsVersion
+    compileSdkVersion versions.compileSdkVersion
+
+    signingConfigs {
+        debug {
+            keyAlias 'rbsoft'
+            keyPassword '23378528'
+            storeFile file('../docs/signature/rbsoft.key')
+            storePassword 'soft@readboy.com'
+        }
+        release {
+            keyAlias 'rbsoft'
+            keyPassword '23378528'
+            storeFile file('../docs/signature/rbsoft.key')
+            storePassword 'soft@readboy.com'
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.readboy.onlinecourseaides"
+        minSdkVersion versions.minSdkVersion
+        targetSdkVersion versions.targetSdkVersion
+        versionCode 230107009
+        versionName "1.0.7"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
+    }
+
+//    viewBinding {
+//        enabled = true
+//    }
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            minifyEnabled false // 防止DEBUG测试漏掉情况而开启混淆，可以自行关闭
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    flavorDimensions "main"
+    productFlavors {
+        readboy {
+            flavorDimensions "main"
+        }
+        third {
+            flavorDimensions "main"
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            def user = 'common'
+            if ('readboy' == variant.productFlavors[0].name) {
+                user = 'readboy'
+            }
+            def hasLauncher = true
+            outputFileName = "onlineCourseAides_${user}" +
+                    "_${defaultConfig.versionName}.apk"
+        }
+    }
+
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+
+    def dependencies = rootProject.ext.dependencies
+
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.preference:preference-ktx:1.1.1'
+//    implementation 'androidx.core:core-ktx:1.8.0'
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+//    获取读书郎个人中心数据
+    implementation 'com.readboy.getaccountinfo:getaccountinfo:1.2.0'
+//    网络请求 RxJava + Retrofit + okHttp
+    /*rx-android-java*/
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    implementation 'com.trello:rxlifecycle:1.0'
+    implementation 'com.trello:rxlifecycle-components:1.0'
+    /*rotrofit*/
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.0.0'
+    implementation 'com.google.code.gson:gson:2.8.0'
+//  rotrofit  baseurl
+    implementation 'me.jessyan:retrofit-url-manager:1.4.0'
+
+    def dep = rootProject.ext.dependencies
+    // leakcanary
+    debugImplementation dep["leakcanary"]
+    // ExoPlayer
+//    implementation dep["exocore"]
+//    implementation dep["exoui"]
+    //exoplayer
+    implementation 'com.google.android.exoplayer:exoplayer:2.17.1'
+    // BRVAH
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.0'
+    implementation  'com.github.li-xiaojun:XPopup:2.6.6'
+
+    // 图片裁切
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
+    // 图片加载
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    //精准学图谱
+    implementation 'com.readboy.wanimation:tagcloud:2.2.44'
+    // json格式的动画
+    implementation 'com.airbnb.android:lottie:3.1.0'
+//lombok配置依赖
+    implementation 'javax.annotation:javax.annotation-api:1.2'
+
+    // lombok  无效 [as 203.7717 gradle 6.7.1]
+//    api "org.projectlombok:lombok:1.18.16"  无效
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.22'
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.22'
+
+    api dependencies.annotation
+    api dependencies.annotationexp
+    api dependencies.jacksonAnnotation
+    api dependencies.jacksonDataBind
+    api dependencies.jacksonNetwork
+
+    //阿里云播放器
+    implementation 'com.aliyun.sdk.android:AliyunPlayer:5.3.0-full'
+    //阿里云播放器5.3.0 版本以前需要引入AlivcConan库，5.3.0及其以后的版本不需要引入
+//    implementation 'com.alivc.conan:AlivcConan:x.x.x
+    api(name: 'aliyunplayerlib-220307001', ext: 'aar')
+
+    // xml转json
+    implementation 'com.github.smart-fun:XmlToJson:1.4.5'    // add this line
+}

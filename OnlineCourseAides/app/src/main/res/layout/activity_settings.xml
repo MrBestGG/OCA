@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.readboy.onlinecourseaides.viewmodel.SettingsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.SettingsActivity">
+
+        <TextView
+            android:id="@+id/settings_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/title_activity_settings"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#f4f4f4"
+            android:layout_marginTop="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settings_tv_title"
+            />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fl_0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="50dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settings_tv_title">
+
+            <ImageView
+                android:id="@+id/switch_online_course_start_img"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@mipmap/online_course_start"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="网课模式开关"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintLeft_toRightOf="@id/switch_online_course_start_img"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_online_course_aides"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="50dp"
+                android:checked="@={viewModel._isAidesEnabled}"
+                android:onCheckedChanged="@{viewModel::onFloatWinAidesEnableChanged}"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:switchMinWidth="61dp"
+                android:thumb="@drawable/select_settings_btn"
+                app:track="@drawable/s_setting_control"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_title_settings"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:layout_marginTop="20dp"
+            android:background="#f4f4f4"
+            android:gravity="center_vertical"
+            android:paddingLeft="50dp"
+            android:text="网课专属模式设置"
+            android:textColor="#616161"
+            android:textSize="15sp"
+            app:layout_constraintTop_toBottomOf="@id/fl_0" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fl_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_settings">
+
+            <ImageView
+                android:id="@+id/switch_online_course_speed_img"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="8dp"
+                android:background="@mipmap/s_settings_speed"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/switch_online_course_speed_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="网课加速"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintLeft_toRightOf="@id/switch_online_course_speed_img"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/switch_online_course_speed_tv"
+                app:layout_constraintLeft_toRightOf="@id/switch_online_course_speed_img"
+                android:textColor="#8b8b8b"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="30dp"
+                android:text="开启后，系统将清理后台任务，并暂停后台下载，提升当前网络速度"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_online_course_accelerate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="50dp"
+                android:checked="@={viewModel._isCourseAidesAccelerateEnabled}"
+                android:onCheckedChanged="@{viewModel::onAccelerateEnableChanged}"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:switchMinWidth="61dp"
+                android:thumb="@drawable/select_settings_btn"
+                app:track="@drawable/s_setting_control" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#f4f4f4"
+            android:layout_marginTop="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fl_1"
+            />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fl_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fl_1">
+            <ImageView
+                android:id="@+id/switch_online_course_no_msg_img"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="8dp"
+                android:background="@mipmap/s_settings_no_msg"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/switch_online_course_no_msg_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="网课免打扰"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintLeft_toRightOf="@id/switch_online_course_no_msg_img"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/switch_online_course_no_msg_tv"
+                app:layout_constraintLeft_toRightOf="@id/switch_online_course_no_msg_img"
+                android:textColor="#8b8b8b"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="30dp"
+                android:text="开启后，系统将屏蔽第三方应用通知，坐姿护眼等信息"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_online_course_no_disturb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginRight="50dp"
+                android:checked="@={viewModel._isCourseAidesNoDisturbEnabled}"
+                android:onCheckedChanged="@{viewModel::onNoDisturbEnableChanged}"
+                app:switchMinWidth="61dp"
+                android:thumb="@drawable/select_settings_btn"
+                app:track="@drawable/s_setting_control"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#f4f4f4"
+            android:layout_marginTop="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fl_2"
+            />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fl_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fl_2">
+            <ImageView
+                android:id="@+id/switch_online_course_no_msg_img2"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@mipmap/s_settings_care_eye"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="8dp"/>
+            <TextView
+                android:id="@+id/switch_online_course_no_msg_tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="护眼模式"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintLeft_toRightOf="@id/switch_online_course_no_msg_img2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/switch_online_course_no_msg_tv2"
+                app:layout_constraintLeft_toRightOf="@id/switch_online_course_no_msg_img2"
+                android:textColor="#8b8b8b"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="30dp"
+                android:text="开启滤蓝光保护视力"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginRight="50dp"
+                android:id="@+id/switch_online_course_eyes_care"
+                android:checked="@={viewModel._isEyesCareModeEnabled}"
+                android:onCheckedChanged="@{viewModel::onEyesCareEnableChanged}"
+                app:switchMinWidth="61dp"
+                android:thumb="@drawable/select_settings_btn"
+                app:track="@drawable/s_setting_control" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_title_settings2"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:layout_marginTop="20dp"
+            android:background="#f4f4f4"
+            android:gravity="center_vertical"
+            android:paddingLeft="50dp"
+            android:text="网课笔记"
+            android:textColor="#616161"
+            android:textSize="15sp"
+            app:layout_constraintTop_toBottomOf="@id/fl_3" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fl_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_settings2">
+            <ImageView
+                android:id="@+id/switch_online_course_no_msg_img3"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="8dp"
+                android:background="@mipmap/s_setting_note_win"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/switch_online_course_no_msg_tv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="笔记悬浮窗"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintLeft_toRightOf="@id/switch_online_course_no_msg_img3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/switch_online_course_no_msg_tv3"
+                app:layout_constraintLeft_toRightOf="@id/switch_online_course_no_msg_img3"
+                android:textColor="#8b8b8b"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="30dp"
+                android:text="开启后，笔记听课两不误，支持录音录屏截图"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginRight="50dp"
+                android:id="@+id/switch_online_course_eyes_care2"
+                android:checked="@={viewModel._isCourseAidesFloatWindowEnabled}"
+                android:onCheckedChanged="@{viewModel::onFloatWindowEnableChanged}"
+                app:switchMinWidth="61dp"
+                android:thumb="@drawable/select_settings_btn"
+                app:track="@drawable/s_setting_control"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#f4f4f4"
+            android:layout_marginTop="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fl_5"
+            />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fl_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fl_5"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp">
+            <ImageView
+                android:id="@+id/switch_online_course_alpha_img"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@mipmap/s_settings_alpha"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="闲置时透明度设置"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintLeft_toRightOf="@id/switch_online_course_alpha_img"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="30dp"/>
+            <SeekBar
+                android:id="@+id/s_settings_seekbar"
+                android:layout_width="743dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/switch_online_course_alpha_img"
+                android:progressBackgroundTint="@color/select_grey"
+                android:progressTint="#007dfe"
+                android:onProgressChanged="@{viewModel::onFloatWindowAlphaChanged}"
+                android:progress="@={viewModel._floatWindowAlpha}"
+                android:thumb="@drawable/select_seekbar_thumb"/>
+
+            <TextView
+                android:id="@+id/settings_alpha_percent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@{viewModel.floatWindowAlpha.toString().concat(`%`)}"
+                android:textColor="#818181"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@id/switch_online_course_alpha_img"
+                app:layout_constraintLeft_toRightOf="@id/s_settings_seekbar"
+                tools:text="100%" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

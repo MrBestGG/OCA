@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="55dp"
+    android:paddingBottom="10dp"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent">
+
+    <TextView
+        android:id="@+id/history_sound_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="14:00"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/history_sound_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="【录音】"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@id/history_sound_time"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/history_img_screenshots_edit_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/history_sound_delete"
+            android:layout_width="19dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/select_del_img"
+            app:layout_constraintRight_toLeftOf="@id/history_sound_delete_tv"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/history_sound_delete_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/select_default_tv_select"
+            android:textSize="22sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="删除"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.readboy.onlinecourseaides.ui.CustomPlayerControlView
+        android:id="@+id/player_controller"
+        android:layout_width="654dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:controller_layout_id="@layout/layout_view_player_controller"
+        app:layout_constraintTop_toBottomOf="@id/history_sound_time"
+        app:show_timeout="-1"
+        tools:ignore="MissingConstraints"
+        android:background="@drawable/shap_h_sound_item_thems"/>
+
+    <ImageView
+        android:id="@+id/history_sound_record_img"
+        android:layout_width="141dp"
+        android:layout_height="81dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/history_sound_time" />
+    <TextView
+        android:id="@+id/history_sound_soundToText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="【语音转文字】"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/player_controller"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/history_sound_soundToText_edit"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="30dp"
+        android:background="@mipmap/h_sound_to_text_edit"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/player_controller"
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/history_sound_Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@null"
+        android:enabled="false"
+        android:hint="可编辑转文字内容"
+        android:maxLines="5"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/history_sound_soundToText"
+        android:visibility="gone"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

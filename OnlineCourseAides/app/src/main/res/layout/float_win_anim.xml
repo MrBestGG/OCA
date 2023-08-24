@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+    <RelativeLayout
+        android:layout_width="680dp"
+        android:layout_height="400dp"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <RelativeLayout
+            android:layout_width="578dp"
+            android:layout_height="155dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/float_anim_content"
+            android:elevation="10dp">
+
+            <TextView
+                android:id="@+id/load_float_tv_title_net_speed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="30dp"
+                android:text="网络加速"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/load_float_tv_title_net_speed_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_toRightOf="@id/load_float_tv_title_net_speed"
+                android:text="已开启"
+                android:textColor="@color/blue"
+                android:textSize="20sp" />
+
+            <View
+                android:id="@+id/load_float_tv_title_line1"
+                android:layout_width="160dp"
+                android:layout_height="2dp"
+                android:layout_below="@id/load_float_tv_title_net_speed"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:background="#5db0fd" />
+
+            <TextView
+                android:id="@+id/load_float_tv_title_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/load_float_tv_title_line1"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:text="释放内存"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/load_float_tv_title_clear_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/load_float_tv_title_line1"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@id/load_float_tv_title_clear"
+                android:text="已优化"
+                android:textColor="@color/blue"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/load_float_tv_title_no_msg_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="50dp"
+                android:text="已开启"
+                android:textColor="@color/blue"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/load_float_tv_title_no_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="40dp"
+                android:layout_toLeftOf="@id/load_float_tv_title_no_msg_status"
+                android:text="防打扰"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <View
+                android:id="@+id/load_float_tv_title_line2"
+                android:layout_width="160dp"
+                android:layout_height="2dp"
+                android:layout_below="@id/load_float_tv_title_no_msg"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="50dp"
+                android:background="#5db0fd" />
+
+            <TextView
+                android:id="@+id/load_float_tv_title_care_eye_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/load_float_tv_title_line2"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="50dp"
+                android:text="已优化"
+                android:textColor="@color/blue"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/load_float_tv_title_care_eye"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/load_float_tv_title_line2"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_toLeftOf="@id/load_float_tv_title_care_eye_status"
+                android:text="护眼模式"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </RelativeLayout>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/la_aw"
+            android:layout_width="146dp"
+            android:layout_height="267dp"
+            android:layout_centerHorizontal="true"
+            app:lottie_autoPlay="false"
+            app:lottie_fileName="data.json"
+            app:lottie_imageAssetsFolder="images/"
+            app:lottie_loop="false"
+            android:elevation="15dp"/>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
